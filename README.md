@@ -31,6 +31,35 @@ Once the command interpreter is running, you can use various commands to interac
 - `destroy <classname> <id>`: Delete the specified instance (e.g., `destroy User 123`).
 - `quit`: Exit the command interpreter.
 
+
+### Examples
+
+Here are some examples of how to use the command interpreter:
+
+1. Creating a new user:
+
+   ```
+   (hbnb) create User account
+   ```
+
+2. Updating a user's name:
+
+   ```
+   (hbnb) update User 123 name "Ahmed"
+   ```
+
+3. Viewing information about a property:
+
+   ```
+   (hbnb) show Place 456
+   ```
+
+4. Listing all users:
+
+   ```
+   (hbnb) all User
+   ```
+
 Please refer to the documentation or use the `help` command within the interpreter for a complete list of available commands and their usage.
 
 Feel free to explore the different commands and functionalities of the Airbnb clone project using the command interpreter.
