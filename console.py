@@ -1,7 +1,10 @@
 #!/usr/bin/python3
 """console module that represent the entry point to the app"""
-
+import models
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.place import Place
 from models import storage
 import cmd
 
