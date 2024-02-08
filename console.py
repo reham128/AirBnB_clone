@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 """console module that represent the entry point to the app"""
+
+from models.base_model import BaseModel
+from models import storage
 import cmd
 
 app_classes = {"BaseModel": BaseModel, "User": User, "State": State,
