@@ -3,6 +3,8 @@
 
 import json
 from models.base_model import BaseModel
+import models
+import os
 
 class FileStorage:
     """Saves and retrieves objects from a JSON file"""
@@ -18,7 +20,8 @@ class FileStorage:
         """
         Sets in __objects the obj with key <obj class name>.id
         """
-        key = obj.__class
+        key = "{}.{}".format(obj.__class__.__name__, obj.id)
+        self.__objects[key] = obj
 
     def save(self):
         """
@@ -38,6 +41,6 @@ class FileStorage:
             with open(self.__file_path, "r") as file:
                 dictionary = json.load(file)
             for key, value in dictionary.items():
-                self.__objects[key] = BaseModel.from_dict(value)
+                self.__objects[key] = BaseModel.to_dict(value)
         except FileNotFoundError:
             pass
