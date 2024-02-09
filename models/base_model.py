@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """It defines all common attributes/methods for other classes"""
+
 import models
 from uuid import uuid4
 from datetime import datetime
@@ -33,7 +34,6 @@ class BaseModel:
     def to_dict(self):
         """Returns a dictionary representation of the BaseModel object"""
         return {
-            "id": self.id,
             "created_at": self.created_at.isoformat(),
             "updated_at": self.updated_at.isoformat(),
             "class": self.__class__.__name__

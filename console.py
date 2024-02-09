@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """console module that represent the entry point to the app"""
-import models
+
 from models.base_model import BaseModel
 from models.user import User
 from models.state import State
@@ -9,26 +9,28 @@ from models.city import City
 from models.review import Review
 from models.amenity import Amenity
 from models import storage
-import cmd
 from shlex import split as split
+import models
 import os
+import cmd
 
 app_classes = {"BaseModel": BaseModel, "User": User, "State": State,
         "Amenity": Amenity, "Place": Place, "City": City, "Review": Review}
 
 
 class HBNBCommand(cmd.Cmd):
-    """class to handel the command line interpretr to act like the
+    """class to handle the command line interpretr to act like the
     front-End for the AirBnB clone"""
 
     prompt = "(hbnb) "
 
-    def do_EOF(self, line):
-        """to exit the program"""
-        return (True)
-
     def do_quit(self, line):
         """Quit command to exit the program"""
+        return (True)
+
+    def do_EOF(self, line):
+        """Exits the program"""
+        print()
         return (True)
 
     def emptyline(self):
