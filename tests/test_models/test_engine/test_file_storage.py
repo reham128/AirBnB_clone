@@ -3,6 +3,7 @@
 Unittests Module to test the class of FleStorage
 """
 import json
+import unittest
 from models.base_model import BaseModel
 import os
 from models.user import User
@@ -33,7 +34,7 @@ class TestFileStorage(unittest.TestCase):
 
     def test_new(self):
         self.storage.new(self.new_obj)
-        tmp = "{}.{}".format(objec.__class__.__name__, objec.id)
+        tmp = "{}.{}".format(self.new_obj.__class__.__name__, self.new_obj.id)
         self.assertIn(tmp, self.storage.all())
         self.assertEqual(self.storage._FileStorage__objects[tmp], self.new_obj)
     
@@ -41,7 +42,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage.new(self.new_obj)
         self.storage.save()
         self.storage.reload()
-        tmp = "{}.{}".format(objec.__class__.__name__, objec.id)
+        tmp = "{}.{}".format(self.new_obj.__class__.__name__, self.new_obj.id)
         self.assertIn(tmp, self.storage._FileStorage__objects)
 
     def test_all(self):
