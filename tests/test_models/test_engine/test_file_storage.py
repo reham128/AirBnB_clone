@@ -37,7 +37,7 @@ class TestFileStorage(unittest.TestCase):
         tmp = "{}.{}".format(self.new_obj.__class__.__name__, self.new_obj.id)
         self.assertIn(tmp, self.storage.all())
         self.assertEqual(self.storage._FileStorage__objects[tmp], self.new_obj)
-    
+
     def test_save_and_reload(self):
         self.storage.new(self.new_obj)
         self.storage.save()
@@ -49,6 +49,14 @@ class TestFileStorage(unittest.TestCase):
         key = self.storage.all()
         self.assertIsNotNone(key)
         self.assertEqual(type(key), dict)
+
+    def test_emptystorage_all(self):
+        key = self.storage.all()
+        self.assertIsInstance(key, dict)
+
+    def test_reload_none(self):
+        with self.assertRaises(TypeError):
+            storage.reload(None)
 
 
 if __name__ == "__main__":
