@@ -15,7 +15,7 @@ import os
 import cmd
 
 app_classes = {"BaseModel": BaseModel, "User": User, "State": State,
-        "Amenity": Amenity, "Place": Place, "City": City, "Review": Review}
+               "Amenity": Amenity, "Place": Place, "City": City, "Review": Review}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -125,6 +125,7 @@ class HBNBCommand(cmd.Cmd):
             else:
                 setattr(models.storage.all()[new_obj], arg[2], arg[3])
                 models.storage.save()
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
