@@ -42,7 +42,7 @@ class TestFileStorage(unittest.TestCase):
         self.storage.save()
         self.storage.reload()
         tmp = "{}.{}".format(objec.__class__.__name__, objec.id)
-        self.assertIn(tmp, self.storage.._FileStorage__objects)
+        self.assertIn(tmp, self.storage._FileStorage__objects)
 
     def test_all(self):
         key = self.storage.all()
