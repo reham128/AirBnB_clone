@@ -15,7 +15,8 @@ import os
 import cmd
 
 app_classes = {"BaseModel": BaseModel, "User": User, "State": State,
-               "Amenity": Amenity, "Place": Place, "City": City, "Review": Review}
+               "Amenity": Amenity, "Place": Place, "City": City,
+               "Review": Review}
 
 
 class HBNBCommand(cmd.Cmd):
