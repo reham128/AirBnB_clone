@@ -58,6 +58,27 @@ class TestFileStorage(unittest.TestCase):
         with self.assertRaises(TypeError):
             storage.reload(None)
 
+    def test_save_none(self):
+        with self.assertRaises(TypeError):
+            storage.save(None)
+
+    def test_privetpath(self):
+        self.assertEqual(str, type(FileStorage._FileStorage__file_path))
+
+    def test_none_filestorage(self):
+        self.assertEqual(type(FileStorage()), FileStorage)
+
+    def test_type_storage(self):
+        self.assertEqual(type(storage), FileStorage)
+
+    def test_reload_exiist(self):
+        bm = BaseModel()
+        self.storage.new(bm)
+        self.storage.save()
+        self.storage.reload()
+        all_obj = self.storage.all()
+        self.assertIn("BaseModel.{}".format(bm.id), all_obj)
+
 
 if __name__ == "__main__":
     unittest.main()
