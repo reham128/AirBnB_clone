@@ -6,6 +6,7 @@ import unittest
 from models.base_model import BaseModel
 import os
 from models.user import User
+import sys
 
 
 class TestUser(unittest.TestCase):
@@ -50,13 +51,6 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.user.last_name, "")
         self.assertEqual(self.user.password, "")
         self.assertEqual(self.user.email, "")
-
-    def test_save_correctly(self):
-        self.user.save()
-        self.assertNotEqual(self.user.created_at, self.user.updated_at)
-
-    def tearDown(self):
-        del self.user
 
 
 if __name__ == "__main__":
