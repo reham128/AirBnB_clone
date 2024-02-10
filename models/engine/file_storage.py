@@ -1,10 +1,14 @@
 #!/usr/bin/python3
-"""Serializes instances to a JSON file and deserializes JSON file to instances"""
+"""
+Serializes instances to a JSON file
+and deserializes JSON file to instances
+"""
 
 import json
 from models.base_model import BaseModel
 import models
 import os
+
 
 class FileStorage:
     """Saves and retrieves objects from a JSON file"""
