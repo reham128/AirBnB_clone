@@ -111,6 +111,5 @@ class TestPlace(unittest.TestCase):
         del self.place
 
 
-
 if __name__ == "__main__":
     unittest.main()
