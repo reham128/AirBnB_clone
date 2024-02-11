@@ -2,10 +2,10 @@
 """
 Unittests Module to test the class of FleStorage
 """
+import os
 import json
 import unittest
 from models.base_model import BaseModel
-import os
 from models.user import User
 from models.state import State
 from models.place import Place
@@ -71,7 +71,7 @@ class TestFileStorage(unittest.TestCase):
     def test_type_storage(self):
         self.assertEqual(type(storage), FileStorage)
 
-    def test_reload_exiist(self):
+    def test_reload_exist(self):
         bm = BaseModel()
         self.storage.new(bm)
         self.storage.save()
