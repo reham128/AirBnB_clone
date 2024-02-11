@@ -38,7 +38,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, line):
-        """to create new instance and save it to json file"""
+        """Creates new instance and saves it to json file"""
         arg = line.split()
         if not arg:
             print("** class name missing **")
