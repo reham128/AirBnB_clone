@@ -7,15 +7,13 @@ from models.base_model import BaseModel
 import os
 from models.user import User
 import sys
+from models import storage
 
 
 class TestUser(unittest.TestCase):
     """testing user class"""
     def setUp(self):
         self.user = User()
-
-    def tearDown(self):
-        del self.user
 
     def test_base_inhert(self):
         self.assertIsInstance(self.user, BaseModel)
