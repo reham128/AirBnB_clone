@@ -7,6 +7,7 @@ from models.base_model import BaseModel
 import os
 from models.place import Place
 import sys
+import datetime
 
 
 class TestPlace(unittest.TestCase):
@@ -16,6 +17,9 @@ class TestPlace(unittest.TestCase):
 
     def test_base_inhert(self):
         self.assertIsInstance(self.place, BaseModel)
+
+    def test_subclass_place(self):
+        self.assertTrue(issubclass(Place, BaseModel))
 
     def test_attribute_name(self):
         self.assertTrue(hasattr(self.place, "name"))
@@ -64,6 +68,48 @@ class TestPlace(unittest.TestCase):
 
     def test_place_instance(self):
         self.assertIsInstance(self.place, Place)
+
+    def test_defultval_name(self):
+        self.assertEqual(self.place.name, "")
+
+    def test_defultval_description(self):
+        self.assertEqual(self.place.description, "")
+
+    def test_defultval_city_id(self):
+        self.assertEqual(self.place.city_id, "")
+
+    def test_defultval_user_id(self):
+        self.assertEqual(self.place.user_id, "")
+
+    def test_defultval_number_rooms(self):
+        self.assertEqual(self.place.number_rooms, 0)
+
+    def test_defultval_number_bathrooms(self):
+        self.assertEqual(self.place.number_bathrooms, 0)
+
+    def test_defultval_longitude(self):
+        self.assertEqual(self.place.longitude, 0.0)
+
+    def test_defultval_latitude(self):
+        self.assertEqual(self.place.latitude, 0.0)
+
+    def test_defultval_max_guest(self):
+        self.assertEqual(self.place.max_guest, 0)
+
+    def test_defultval_price_by_night(self):
+        self.assertEqual(self.place.price_by_night, 0)
+
+    def test_defultval_amenity_ids(self):
+        self.assertEqual(self.place.amenity_ids, [])
+
+    def test_str_rep(self):
+        self.assertIn(self.place.__class__.__name__, str(self.place))
+        self.assertIn(self.place.id, str(self.place))
+        self.assertIn(str(self.place.__dict__), str(self.place))
+
+    def tearDown(self):
+        del self.place
+
 
 
 if __name__ == "__main__":

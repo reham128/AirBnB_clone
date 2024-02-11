@@ -14,6 +14,9 @@ class TestUser(unittest.TestCase):
     def setUp(self):
         self.user = User()
 
+    def tearDown(self):
+        del self.user
+
     def test_base_inhert(self):
         self.assertIsInstance(self.user, BaseModel)
 
